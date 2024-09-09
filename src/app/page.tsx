@@ -3,7 +3,7 @@ import { loginAction, showAction } from "./action";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  const [show, setShow] = useState<string>();
+  const [show, setShow] = useState<string>("");
   useEffect(() => {
     showAction().then((data) => setShow(data));
   }, []);
