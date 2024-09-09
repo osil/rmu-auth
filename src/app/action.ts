@@ -1,5 +1,6 @@
 "use server";
 import axios from "axios";
+import { redirect } from "next/navigation";
 
 export async function loginAction(formData: FormData) {
   const username = formData.get("username");
@@ -15,5 +16,8 @@ export async function loginAction(formData: FormData) {
   if (statusCode === 200) {
     const profile = response.data.profile;
     console.log(profile);
+    redirect("/profile");
+  } else {
+    redirect("/sign-up");
   }
 }
