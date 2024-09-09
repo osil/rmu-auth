@@ -4,9 +4,14 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [show, setShow] = useState<string>("");
+  const showData = async () => {
+    const data = await showAction();
+    setShow(data);
+  };
   useEffect(() => {
-    showAction().then((data) => setShow(data));
+    showData();
   }, []);
+
   return (
     <div className="flex items-center justify-center h-screen bg-gray-200">
       <form
