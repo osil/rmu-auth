@@ -21,3 +21,6 @@ export async function loginAction(formData: FormData) {
     redirect("/sign-up");
   }
 }
+export async function showAction() {
+  return "hello";
+}

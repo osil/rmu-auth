@@ -1,14 +1,19 @@
 "use client";
-import { loginAction } from "./action";
+import { loginAction, showAction } from "./action";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [show, setShow] = useState<string>();
+  useEffect(() => {
+    showAction().then((data) => setShow(data));
+  }, []);
   return (
     <div className="flex items-center justify-center h-screen bg-gray-200">
       <form
         className="bg-white p-8 rounded shadow-md w-96"
         action={loginAction}
       >
-        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center">Login {show}</h1>
         <div className="mb-4">
           <label className="block text-sm font-bold mb-2" htmlFor="username">
             Username
