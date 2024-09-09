@@ -8,7 +8,7 @@ export async function loginAction(formData: FormData) {
     return null;
   }
   const response = await axios.get(
-    `https://stndev.rmu.ac.th/authen/check-login.php?authen_username=${username}&authen_password=${password}&authen_system=CCAUTHEN&authen_token=8b4721998e0d2e108ebb8f304c75637e`
+    `${process.env.NEXT_PUBLIC_AUTHEN_API}?authen_username=${username}&authen_password=${password}&authen_system=${process.env.NEXT_PUBLIC_AUTHEN_SYSTEM}&authen_token=${process.env.NEXT_PUBLIC_AUTHEN_TOKEN}`
   );
   const statusCode = response.data.statusCode;
 
